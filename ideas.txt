@@ -1,0 +1,20 @@
+Mongo vs SQL
+lookup speed
+insert speed
+update speed
+how transactions are handled
+how atomicity affects performance
+backups/redundancy how it affects performance/dependability
+indexing
+
+2 layer system: fast one in front hooked with reliable one in back
+
+
+peformance characteristics:
+speed
+memory
+disk space
+reliability
+ease of parallelization/distributing
+backing up/redundancy
+durable
