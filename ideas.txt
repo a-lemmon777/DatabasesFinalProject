@@ -18,3 +18,75 @@ reliability
 ease of parallelization/distributing
 backing up/redundancy
 durable
+
+
+toku
+innodb
+aria
+
+Things to do:
+Get a new SSD
+install the SSD
+do linux partition
+
+
+
+Implementation
+Install and setup MariaDB
+Install and setup MongoDB
+Create tables (storage engines, indexing)
+Make data generator
+Generate data
+Make script Tom
+
+
+
+Research
+Find out differences between storage engines
+Find out differences between indexing implementations
+Learn about about ACID and BASE
+Determine data sets to use:
+  Long and narrow data vs Short and wide
+  ordered vs unordered
+  small vs large data sets
+
+///For the wiki
+
+###Research: 20 pts
+* Find out differences between storage engines [5 pts]
+* Find out differences between indexing implementations [5 pts]
+* Learn about about ACID and BASE [5 pts]
+* Determine data sets to use: [5 pts]
+  * few columns vs many columns
+  * few records vs many records
+  * ordered vs unordered
+
+###Project Setup: 40 pts
+* Install a new SSD  [2 pts]
+* Install linux on SSD  [8 pts]
+  * Sort out master boot record
+* Install and Configure MariaDB  [15 pts]
+    * Setup configuration files
+    * Make sure default port is not opened
+    * Figure how to point data storage to both the SSD and the HDD
+* Install and Configure MongoDB  [15 pts]
+    * Setup configuration files
+    * Make sure default port is not opened
+    * Figure how to point data storage to both the SSD and the HDD
+
+###Doing the Testing: 60 pts
+* Create data   [15 pts] *Mostly Lemmon*
+  * Generate a data generator that can make n records (where n is between 0 and BIG)
+  * Generate dataset with few columns and n records
+  * Generate dataset with many columns and n records
+* Create tables  [10 pts]
+  * Do research to figure out what index schemes and data engines we should explore
+  * Create tables varying index schemes and data engines on each instance
+  * Duplicate on the other disk drive
+* Create script that:  [15 pts] *Mostly Tom*
+  * switches between tables
+  * switches to the disk drive
+  * runs a specific query on every table
+  * times each query and stores the results
+* Use script to run various queries on tables and organize results  [10 pts]
+* Draw conclusions and perform follow up research  [10 pts]
