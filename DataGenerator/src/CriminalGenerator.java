@@ -40,7 +40,7 @@ public class CriminalGenerator {
 //			printWeight();
 //			printAddress();
 //			printDOB();
-//			printColor();
+			printFavoriteColor(10);
 //			printShoeSize();
 //			printYears();
 //			printFavoriteFood();
@@ -63,6 +63,11 @@ public class CriminalGenerator {
 	private static void printNames(int firstOptions, int lastOptions) {
 		int first = rand.nextInt(firstOptions);
 		int last = rand.nextInt(lastOptions);
-		writer.write(firstNames[first] + "\t" + lastNames[last] + "\t");
+		writer.write(firstNames[first] + "\t" + lastNames[last] + "\t"); // Randomly chooses a first and last name
+	}
+
+	private static void printFavoriteColor(int options) {
+		int color = rand.nextInt(options);
+		writer.write(colors[color] + "\t"); // Will choose a color
 	}
 }
