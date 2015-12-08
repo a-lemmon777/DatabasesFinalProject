@@ -44,22 +44,28 @@ public class CarGenerator {
 		for (int i = 0; i < numRows; ++i) {
 			printVIN();
 			printPlate();
-			printMakeAndModel(10, 10); // Use at least 1 and at most 10 for each of these
-			printColor(5);
 			printState(10);
+			printColor(5);
+			printMakeAndModel(10, 10); // Use at least 1 and at most 10 for each of these
+			printYear();
 			writer.println();
 		}
 		writer.close();
 	}
 
+	private static void printYear() {
+		int n = rand.nextInt(11); // Generates a number 0-10
+		writer.write(n + 2005); // Will make a year that the car was made, 2005-2015
+	}
+
 	private static void printState(int options) {
 		int state = rand.nextInt(options);
-		writer.write(states[state] + "\t");
+		writer.write(states[state] + "\t"); // Will choose a state
 	}
 
 	private static void printColor(int options) {
 		int color = rand.nextInt(options);
-		writer.write(colors[color] + "\t");
+		writer.write(colors[color] + "\t"); // Will choose a color
 	}
 
 	private static void printVIN() {
@@ -72,7 +78,7 @@ public class CarGenerator {
 	}
 
 	private static void printPlate() {
-		int length = 6; // plates will be 6 characters long
+		int length = 6; // Plates will be 6 characters long
 		StringBuilder plate = new StringBuilder(length); 
 		for (int i = 0; i < 3; ++i) { // First three digits are numbers
 			plate.append((char)('0' + rand.nextInt(10))); // Should give 0 through 9
