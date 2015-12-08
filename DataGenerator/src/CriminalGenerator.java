@@ -18,6 +18,11 @@ public class CriminalGenerator {
 		"Mills", "McCarthy", "Murray", "Ray", "Chapman", "Carson", "Caldwell", "Summers", "Hill", "Parsons", "Baker", "Lewis", "Stone", "Vasquez",
 		"Jimenez", "McBride", "Gilbert", "Vargas", "Neal", "Bowers", "Tucker", "Daniel", "Hardy", "McCoy", "Clayton", "Ryan", "Maldonado", "Alvarado",
 		"Nash", "Mathis", "Park", "Castro", "Green", "Wong", "Wright", "Miles", "Armstrong", "Collins"};
+	private static String[] addressNames = {"Park", "Lexington", "Hilltop", "Highland", "College", "Mulberry", "Devonshire", "Academy", "Railroad",
+		"Main", "Cardinal", "Market", "Ridge", "Cedar", "Spruce"};
+	private static String[] addressEnds = {"Drive", "Street", "Avenue", "Court", "Road", "Lane", "Place"};
+	private static String[] cityNames = {"Omaha", "San Diego", "St. Louis", "Tampa", "Detroit", "San Jose", "Nashville-Davidson", "Jersey City", "Dallas",
+		"Glendale", "Durham", "Memphis", "Lexington-Fayette", "Reno", "Virginia Beach", "El Paso", "North Hempstead", "Hialeah", "Milwaukee", "San Francisco"};
 	private static String[] colors = {"Red", "Blue", "Green", "Purple", "Yellow", "Amaranth", "Amber", "Amethyst", "Apricot", "Aquamarine",
 		"Azure", "Beige", "Blush", "Bronze", "Boysenberry", "Lilac", "Lion", "Magenta", "Lust", "Mauvelous", "Carmine", "Malachite", "Taupe",
 		"Moccasin", "Mulberry", "Onyx", "Olivine", "Orange", "Copper", "Silver", "Patriarch", "Peach", "Platinum", "Rose", "Raspberry",
@@ -52,7 +57,7 @@ public class CriminalGenerator {
 			printNames(10, 10);
 			printHeight(60, 82);
 			printWeight(120, 125);
-//			printAddress();
+			printAddress();
 			printDOB();
 			printFavoriteColor(10);
 			printShoeSize(6, 16);
@@ -92,6 +97,21 @@ public class CriminalGenerator {
 		writer.write(String.valueOf(weight) + "\t");
 	}
 	
+	// Generates a random four-digit address number, a random street name, a random street suffix, random city and state, and random zip code
+	private static void printAddress() {
+		StringBuilder address = new StringBuilder(100);
+		int[] random = {rand.nextInt(15), rand.nextInt(7), rand.nextInt(20), rand.nextInt(50)};
+		for (int i = 0; i < 4; ++i) { // Four house number digits
+			address.append((char)('0' + rand.nextInt(10))); // Should give 0 through 9
+		}
+		address.append(" " + addressNames[random[0]] + " " + addressEnds[random[1]] + ", " + cityNames[random[2]] + ", " + states[random[3]] + ", ");
+		for (int i = 0; i < 5; ++i) { // Five zip code digits
+			address.append((char)('0' + rand.nextInt(10))); // Should give 0 through 9
+		}
+		writer.write(address.toString() + "\t");
+	}
+	
+	// Gets a random month, day, and year (between 1952 and 2000)
 	private static void printDOB() {
 		GregorianCalendar gc = new GregorianCalendar();
 		int year = 1952 + (int)Math.round(Math.random() * (2000 - 1952));
