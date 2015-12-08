@@ -31,6 +31,7 @@ public class CriminalGenerator {
 		"Mediocre-ly obese. Could lose like 20 pounds and be the hottest prisoner in Block E.",
 		"The potbelly on this person is sorta cute, but I feel like they haven't exercised in four years...",
 		"Decently fit. Completely average except for the fact that they're a criminal."};
+	private static String[] offense = {"Petty misdemeanor", "Misdemeanor", "Gross misdemeanor", "Felony"};
 	private static String[] states= {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA",
 		"ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD",
 		"TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
@@ -53,14 +54,14 @@ public class CriminalGenerator {
 //			printAddress();
 //			printDOB();
 			printFavoriteColor(10);
-//			printShoeSize();
-//			printYears();
+			printShoeSize(6, 16);
+			printYears(1, 35);
 			printFavoriteFood(10);
 			printFitness();
 			printEyeColor(10);
 			printHairColor(10);
 			printIsVegetarian();
-//			printLevelOfOffense();
+			printLevelOfOffense();
 			printState(10);
 			writer.println();
 		}
@@ -94,7 +95,17 @@ public class CriminalGenerator {
 		int color = rand.nextInt(options);
 		writer.write(colors[color] + "\t"); // Will choose a color
 	}
+	
+	private static void printShoeSize(int minSize, int maxSize) {
+		int shoeSize = rand.nextInt(maxSize - minSize + 1) + minSize;
+		writer.write(String.valueOf(shoeSize) + "\t");
+	}
 
+	private static void printYears(int min, int max) {
+		int numOfYears = rand.nextInt(max - min + 1) + min;
+		writer.write(String.valueOf(numOfYears) + "\t");
+	}
+	
 	private static void printFavoriteFood(int options) {
 		int food = rand.nextInt(options);
 		writer.write(foods[food] + "\t"); // Will choose a food
@@ -122,6 +133,11 @@ public class CriminalGenerator {
 		} else if (veggies == 1) {
 			writer.write("true" + "\t");
 		}
+	}
+	
+	private static void printLevelOfOffense() {
+		int offenseNum = rand.nextInt(4);
+		writer.write(offense[offenseNum] + "\t"); // Will choose one of four offense levels
 	}
 	
 	private static void printState(int options) {
