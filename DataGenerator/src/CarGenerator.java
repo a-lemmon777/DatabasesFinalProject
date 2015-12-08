@@ -15,7 +15,7 @@ public class CarGenerator {
 			{"Chevy", "Avalanche", "Equinox", "Impala", "Malibu", "Captiva", "Traverse", "Cruze", "Aveo", "Camaro", "Corvette"},
 			{"Dodge", "Caravan", "Dart", "Avenger", "Durango", "Charger", "Journey", "Coronet", "Challenger", "Viper", "Ram"},
 			{"Audi", "A1", "TT", "R8", "A4", "A5", "A6", "A7", "Q3", "Q5", "Q7"},
-			{"Buick", "Encore", "Regal GS", "LaCrosse", "Enclave", "Park Avenue", "Century", "Roadmaster", "Somerset", "Electra", "Riviera"},
+			{"Buick", "Encore", "Regal GS", "LaCrosse", "Enclave", "Verano", "Century", "Roadmaster", "Somerset", "Electra", "Riviera"},
 			{"Honda", "Accord", "Civic", "Fit", "City", "Jazz", "Insight", "Inspire", "Legend", "Odyssey", "Stream"},
 			{"Hyundai", "Accent", "Dynasty", "Elantra", "Eon", "Genesis", "Sonata", "Stellar", "Veloster", "Veracruz", "Tiburon"},
 			{"Kia", "Cadenza", "Rio", "Picanto", "Rondo", "Borrego", "Forte", "Soul", "Optima", "Carnival", "Spectra"},
