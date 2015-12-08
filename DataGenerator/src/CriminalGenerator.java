@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Random;
 
@@ -115,10 +116,10 @@ public class CriminalGenerator {
 	private static void printDOB() {
 		GregorianCalendar gc = new GregorianCalendar();
 		int year = 1952 + (int)Math.round(Math.random() * (2000 - 1952));
-		int dayOfYear = 1 + (int)Math.round(Math.random() * (gc.getActualMaximum(gc.DAY_OF_YEAR) - 1));
-		gc.set(gc.YEAR, year);
-		gc.set(gc.DAY_OF_YEAR, dayOfYear);
-		writer.write((gc.get(gc.MONTH) + 1) + "/" + gc.get(gc.DAY_OF_MONTH) + "/" + gc.get(gc.YEAR) + "\t");
+		int dayOfYear = 1 + (int)Math.round(Math.random() * (gc.getActualMaximum(Calendar.DAY_OF_YEAR) - 1));
+		gc.set(Calendar.YEAR, year);
+		gc.set(Calendar.DAY_OF_YEAR, dayOfYear);
+		writer.write((gc.get(Calendar.MONTH) + 1) + "/" + gc.get(Calendar.DAY_OF_MONTH) + "/" + gc.get(Calendar.YEAR) + "\t");
 	}
 
 	private static void printFavoriteColor(int options) {
