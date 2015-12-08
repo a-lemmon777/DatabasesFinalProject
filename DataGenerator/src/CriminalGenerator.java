@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.GregorianCalendar;
 import java.util.Random;
 
 public class CriminalGenerator {
@@ -52,7 +53,7 @@ public class CriminalGenerator {
 			printHeight(60, 82);
 			printWeight(120, 125);
 //			printAddress();
-//			printDOB();
+			printDOB();
 			printFavoriteColor(10);
 			printShoeSize(6, 16);
 			printYears(1, 35);
@@ -89,6 +90,15 @@ public class CriminalGenerator {
 		int numberOfOptions = ((maxHeight - minHeight) / 5) + 1;
 		int weight = (rand.nextInt(numberOfOptions) * 5) + minHeight;
 		writer.write(String.valueOf(weight) + "\t");
+	}
+	
+	private static void printDOB() {
+		GregorianCalendar gc = new GregorianCalendar();
+		int year = 1952 + (int)Math.round(Math.random() * (2000 - 1952));
+		int dayOfYear = 1 + (int)Math.round(Math.random() * (gc.getActualMaximum(gc.DAY_OF_YEAR) - 1));
+		gc.set(gc.YEAR, year);
+		gc.set(gc.DAY_OF_YEAR, dayOfYear);
+		writer.write((gc.get(gc.MONTH) + 1) + "/" + gc.get(gc.DAY_OF_MONTH) + "/" + gc.get(gc.YEAR) + "\t");
 	}
 
 	private static void printFavoriteColor(int options) {
