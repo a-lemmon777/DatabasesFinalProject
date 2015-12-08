@@ -24,6 +24,7 @@ public class CriminalGenerator {
 		
 		for (int i = 0; i < numRows; ++i) {
 			printSSN();
+			printInt(60, 61);
 			writer.println();
 		}
 		writer.close();
@@ -32,5 +33,9 @@ public class CriminalGenerator {
 	private static void printSSN() {
 		int SSN = rand.nextInt(1000000000); // Should give 9 digits
 		writer.write(String.format("%09d", SSN) + "\t");
+	}
+
+	private static void printInt(int minInclusive, int maxInclusive) {
+		int number = rand.nextInt();
 	}
 }
