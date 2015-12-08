@@ -45,7 +45,7 @@ public class CriminalGenerator {
 			printSSN();
 			printNames(10, 10);
 			printHeight(60, 82);
-//			printWeight();
+			printWeight(120, 125);
 //			printAddress();
 //			printDOB();
 			printFavoriteColor(10);
@@ -77,6 +77,13 @@ public class CriminalGenerator {
 	private static void printHeight(int minHeight, int maxHeight) {
 		int height = rand.nextInt(maxHeight - minHeight + 1) + minHeight;
 		writer.write(String.valueOf(height) + "\t");
+	}
+	
+	// Should be in increments of 5
+	private static void printWeight(int minHeight, int maxHeight) {
+		int numberOfOptions = ((maxHeight - minHeight) / 5) + 1;
+		int weight = (rand.nextInt(numberOfOptions) * 5) + minHeight;
+		writer.write(String.valueOf(weight) + "\t");
 	}
 
 	private static void printFavoriteColor(int options) {
