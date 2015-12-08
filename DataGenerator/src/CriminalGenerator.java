@@ -26,7 +26,11 @@ public class CriminalGenerator {
 		"Venison", "Reuben", "Kiwi", "Meatballs", "Quesadilla", "Linguine", "Lobster", "Halibut", "Pasta", "Spaghetti", "Grapes", "Fondu", "Chocolate", "Grits",
 		"Garlic", "Gnocchi", "Eel", "Fajita", "Falafel", "Pepperoni", "Moose", "Skunk", "Milkshake", "Lasagna", "Egg", "Spinach", "Toast", "Butter", "Waffles",
 		"Yogurt", "Zucchini", "Quiche", "Pancakes", "Jerky", "Jelly", "Ham", "Hamburger", "Donut", "Dumpling"};
-	private static String[] fitness = {};
+	private static String[] fitness = {"Super fit. Can run one mile in exactly nine minutes and 72 seconds. Can also lift 312 pounds.",
+		"Not fit at all. Seriously obese. Like, we should put this person on an extreme diet.",
+		"Mediocre-ly obese. Could lose like 20 pounds and be the hottest prisoner in Block E.",
+		"The potbelly on this person is sorta cute, but I feel like they haven't exercised in four years...",
+		"Decently fit. Completely average except for the fact that they're a criminal."};
 	private static String[] states= {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA",
 		"ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD",
 		"TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
@@ -52,7 +56,7 @@ public class CriminalGenerator {
 //			printShoeSize();
 //			printYears();
 			printFavoriteFood(10);
-//			printFitness();
+			printFitness();
 			printEyeColor(10);
 			printHairColor(10);
 			printIsVegetarian();
@@ -96,6 +100,11 @@ public class CriminalGenerator {
 		writer.write(foods[food] + "\t"); // Will choose a food
 	}
 	
+	private static void printFitness() {
+		int fitnessNum = rand.nextInt(5);
+		writer.write(fitness[fitnessNum] + "\t"); // Will choose a hilarious fitness level
+	}
+
 	private static void printEyeColor(int options) {
 		int color = rand.nextInt(options);
 		writer.write(colors[color] + "\t"); // Will choose a color
@@ -107,7 +116,7 @@ public class CriminalGenerator {
 	}
 	
 	private static void printIsVegetarian() {
-		int veggies = rand.nextInt(2);
+		int veggies = rand.nextInt(2); // Prints true or false given 0 or 1
 		if (veggies == 0) {
 			writer.write("false" + "\t");
 		} else if (veggies == 1) {
