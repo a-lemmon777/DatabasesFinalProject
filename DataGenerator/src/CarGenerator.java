@@ -28,6 +28,9 @@ public class CarGenerator {
 			"Ruby", "Russet", "Sandstorm", "Scarlet", "Stormcloud", "Sunglow", "Turqoise", "Zaffre", "Xanadu", "Strawberry", "Waterspout", "Gold",
 			"Urobilin", "Skobeloff", "Sapphire"};
 	
+	// First arg is number of rows to generate
+	// Second arg is the output file path
+	// Third arg is the seed for the random number generator
 	public static void main(String[] args) throws IOException {
 		numRows = Integer.parseInt(args[0]);
 		outputPath = args[1];
