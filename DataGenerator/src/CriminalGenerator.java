@@ -17,6 +17,11 @@ public class CriminalGenerator {
 		"Mills", "McCarthy", "Murray", "Ray", "Chapman", "Carson", "Caldwell", "Summers", "Hill", "Parsons", "Baker", "Lewis", "Stone", "Vasquez",
 		"Jimenez", "McBride", "Gilbert", "Vargas", "Neal", "Bowers", "Tucker", "Daniel", "Hardy", "McCoy", "Clayton", "Ryan", "Maldonado", "Alvarado",
 		"Nash", "Mathis", "Park", "Castro", "Green", "Wong", "Wright", "Miles", "Armstrong", "Collins"};
+	private static String[] colors = {"Red", "Blue", "Green", "Purple", "Yellow", "Amaranth", "Amber", "Amethyst", "Apricot", "Aquamarine",
+		"Azure", "Beige", "Blush", "Bronze", "Boysenberry", "Lilac", "Lion", "Magenta", "Lust", "Mauvelous", "Carmine", "Malachite", "Taupe",
+		"Moccasin", "Mulberry", "Onyx", "Olivine", "Orange", "Copper", "Silver", "Patriarch", "Peach", "Platinum", "Rose", "Raspberry",
+		"Ruby", "Russet", "Sandstorm", "Scarlet", "Stormcloud", "Sunglow", "Turqoise", "Zaffre", "Xanadu", "Strawberry", "Waterspout", "Gold",
+		"Urobilin", "Skobeloff", "Sapphire"};
 	
 	// First arg is number of rows to generate
 	// Second arg is the output file path
@@ -31,6 +36,20 @@ public class CriminalGenerator {
 		for (int i = 0; i < numRows; ++i) {
 			printSSN();
 			printNames(10, 10);
+//			printHeight();
+//			printWeight();
+//			printAddress();
+//			printDOB();
+//			printColor();
+//			printShoeSize();
+//			printYears();
+//			printFavoriteFood();
+//			printFitness();
+//			printEyeColor();
+//			printHairColor();
+//			printIsVegetarian();
+//			printLevelOfOffense();
+//			printState();
 			writer.println();
 		}
 		writer.close();
