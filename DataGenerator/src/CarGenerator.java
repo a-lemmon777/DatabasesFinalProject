@@ -47,25 +47,10 @@ public class CarGenerator {
 			printState(10);
 			printColor(5);
 			printMakeAndModel(10, 10); // Use at least 1 and at most 10 for each of these
-			printYear();
+			printYear(10);
 			writer.println();
 		}
 		writer.close();
-	}
-
-	private static void printYear() {
-		int n = rand.nextInt(11); // Generates a number 0-10
-		writer.write(n + 2005); // Will make a year that the car was made, 2005-2015
-	}
-
-	private static void printState(int options) {
-		int state = rand.nextInt(options);
-		writer.write(states[state] + "\t"); // Will choose a state
-	}
-
-	private static void printColor(int options) {
-		int color = rand.nextInt(options);
-		writer.write(colors[color] + "\t"); // Will choose a color
 	}
 
 	private static void printVIN() {
@@ -89,9 +74,24 @@ public class CarGenerator {
 		writer.write(plate.toString() + "\t");
 	}
 
+	private static void printState(int options) {
+		int state = rand.nextInt(options);
+		writer.write(states[state] + "\t"); // Will choose a state
+	}
+
+	private static void printColor(int options) {
+		int color = rand.nextInt(options);
+		writer.write(colors[color] + "\t"); // Will choose a color
+	}
+
 	private static void printMakeAndModel(int makeOptions, int modelOptions) {
 		int make = rand.nextInt(makeOptions);
 		int model = rand.nextInt(modelOptions) + 1; // Add one since the make is stored at index 0
 		writer.write(makeAndModel[make][0] + "\t" + makeAndModel[make][model] + "\t");
+	}
+
+	private static void printYear(int numYears) {
+		int n = rand.nextInt(numYears); // Generates a number 0 through (numYears - 1)
+		writer.write(String.valueOf(2015 - n)); // Will make a year that is n years old
 	}
 }
