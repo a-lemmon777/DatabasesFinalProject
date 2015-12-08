@@ -26,6 +26,10 @@ public class CriminalGenerator {
 		"Venison", "Reuben", "Kiwi", "Meatballs", "Quesadilla", "Linguine", "Lobster", "Halibut", "Pasta", "Spaghetti", "Grapes", "Fondu", "Chocolate", "Grits",
 		"Garlic", "Gnocchi", "Eel", "Fajita", "Falafel", "Pepperoni", "Moose", "Skunk", "Milkshake", "Lasagna", "Egg", "Spinach", "Toast", "Butter", "Waffles",
 		"Yogurt", "Zucchini", "Quiche", "Pancakes", "Jerky", "Jelly", "Ham", "Hamburger", "Donut", "Dumpling"};
+	private static String[] fitness = {};
+	private static String[] states= {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA",
+		"ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD",
+		"TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
 	
 	// First arg is number of rows to generate
 	// Second arg is the output file path
@@ -49,11 +53,11 @@ public class CriminalGenerator {
 //			printYears();
 			printFavoriteFood(10);
 //			printFitness();
-//			printEyeColor();
-//			printHairColor();
+			printEyeColor(10);
+			printHairColor(10);
 			printIsVegetarian();
 //			printLevelOfOffense();
-//			printState();
+			printState(10);
 			writer.println();
 		}
 		writer.close();
@@ -85,12 +89,27 @@ public class CriminalGenerator {
 		writer.write(foods[food] + "\t"); // Will choose a food
 	}
 	
+	private static void printEyeColor(int options) {
+		int color = rand.nextInt(options);
+		writer.write(colors[color] + "\t"); // Will choose a color
+	}
+	
+	private static void printHairColor(int options) {
+		int color = rand.nextInt(options);
+		writer.write(colors[color] + "\t"); // Will choose a color
+	}
+	
 	private static void printIsVegetarian() {
 		int veggies = rand.nextInt(2);
 		if (veggies == 0) {
-			writer.write("false");
+			writer.write("false" + "\t");
 		} else if (veggies == 1) {
-			writer.write("true");
+			writer.write("true" + "\t");
 		}
+	}
+	
+	private static void printState(int options) {
+		int state = rand.nextInt(options);
+		writer.write(states[state]); // Will choose a state
 	}
 }
