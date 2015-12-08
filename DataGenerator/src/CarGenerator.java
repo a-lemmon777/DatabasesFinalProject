@@ -25,6 +25,9 @@ public class CarGenerator {
 	private static String[] colors = {"Red", "Blue", "Green", "Purple", "Yellow", "Amaranth", "Amber", "Amethyst", "Apricot", "Aquamarine",
 			"Azure", "Beige", "Blush", "Bronze"};
 	
+	// First arg is number of rows to generate
+	// Second arg is the output file path
+	// Third arg is the seed for the random number generator
 	public static void main(String[] args) throws IOException {
 		numRows = Integer.parseInt(args[0]);
 		outputPath = args[1];
