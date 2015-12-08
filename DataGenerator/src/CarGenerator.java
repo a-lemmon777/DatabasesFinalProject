@@ -27,6 +27,9 @@ public class CarGenerator {
 			"Moccasin", "Mulberry", "Onyx", "Olivine", "Orange", "Copper", "Silver", "Patriarch", "Peach", "Platinum", "Rose", "Raspberry",
 			"Ruby", "Russet", "Sandstorm", "Scarlet", "Stormcloud", "Sunglow", "Turqoise", "Zaffre", "Xanadu", "Strawberry", "Waterspout", "Gold",
 			"Urobilin", "Skobeloff", "Sapphire"};
+	private static String[] states= {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA",
+			"ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD",
+			"TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
 	
 	// First arg is number of rows to generate
 	// Second arg is the output file path
@@ -43,9 +46,15 @@ public class CarGenerator {
 			printPlate();
 			printMakeAndModel(10, 10); // Use at least 1 and at most 10 for each of these
 			printColor(5);
+			printState(10);
 			writer.println();
 		}
 		writer.close();
+	}
+
+	private static void printState(int options) {
+		int state = rand.nextInt(options);
+		writer.write(states[state] + "\t");
 	}
 
 	private static void printColor(int options) {
