@@ -23,7 +23,10 @@ public class CarGenerator {
 			{"Nissan", "Altima", "Maxima", "Frontier", "Leaf", "Skyline", "Armada", "Atlas", "Titan", "Elgrand", "Patrol"}
 	};
 	private static String[] colors = {"Red", "Blue", "Green", "Purple", "Yellow", "Amaranth", "Amber", "Amethyst", "Apricot", "Aquamarine",
-			"Azure", "Beige", "Blush", "Bronze"};
+			"Azure", "Beige", "Blush", "Bronze", "Boysenberry", "Lilac", "Lion", "Magenta", "Lust", "Mauvelous", "Carmine", "Malachite", "Taupe",
+			"Moccasin", "Mulberry", "Onyx", "Olivine", "Orange", "Copper", "Silver", "Patriarch", "Peach", "Platinum", "Rose", "Raspberry",
+			"Ruby", "Russet", "Sandstorm", "Scarlet", "Stormcloud", "Sunglow", "Turqoise", "Zaffre", "Xanadu", "Strawberry", "Waterspout", "Gold",
+			"Urobilin", "Skobeloff", "Sapphire"};
 	
 	public static void main(String[] args) throws IOException {
 		numRows = Integer.parseInt(args[0]);
