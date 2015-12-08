@@ -30,7 +30,7 @@ public class CriminalGenerator {
 		
 		for (int i = 0; i < numRows; ++i) {
 			printSSN();
-//			printNames();
+			printNames(10, 10);
 			writer.println();
 		}
 		writer.close();
@@ -39,5 +39,11 @@ public class CriminalGenerator {
 	private static void printSSN() {
 		int SSN = rand.nextInt(1000000000); // Should give 9 digits
 		writer.write(String.format("%09d", SSN) + "\t");
+	}
+
+	private static void printNames(int firstOptions, int lastOptions) {
+		int first = rand.nextInt(firstOptions);
+		int last = rand.nextInt(lastOptions);
+		writer.write(firstNames[first] + "\t" + lastNames[last] + "\t");
 	}
 }
