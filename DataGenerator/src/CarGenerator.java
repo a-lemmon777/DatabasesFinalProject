@@ -42,9 +42,15 @@ public class CarGenerator {
 			printVIN();
 			printPlate();
 			printMakeAndModel(10, 10); // Use at least 1 and at most 10 for each of these
+			printColor(5);
 			writer.println();
 		}
 		writer.close();
+	}
+
+	private static void printColor(int options) {
+		int color = rand.nextInt(options);
+		writer.write(colors[color] + "\t");
 	}
 
 	private static void printVIN() {
