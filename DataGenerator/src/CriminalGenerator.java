@@ -22,6 +22,10 @@ public class CriminalGenerator {
 		"Moccasin", "Mulberry", "Onyx", "Olivine", "Orange", "Copper", "Silver", "Patriarch", "Peach", "Platinum", "Rose", "Raspberry",
 		"Ruby", "Russet", "Sandstorm", "Scarlet", "Stormcloud", "Sunglow", "Turqoise", "Zaffre", "Xanadu", "Strawberry", "Waterspout", "Gold",
 		"Urobilin", "Skobeloff", "Sapphire"};
+	private static String[] foods = {"Jambalaya", "Hummus", "Pizza", "Lamb", "Human", "Ketchup", "Guacamole", "Duck", "Donuts", "Burrito", "Broccoli",
+		"Venison", "Reuben", "Kiwi", "Meatballs", "Quesadilla", "Linguine", "Lobster", "Halibut", "Pasta", "Spaghetti", "Grapes", "Fondu", "Chocolate", "Grits",
+		"Garlic", "Gnocchi", "Eel", "Fajita", "Falafel", "Pepperoni", "Moose", "Skunk", "Milkshake", "Lasagna", "Egg", "Spinach", "Toast", "Butter", "Waffles",
+		"Yogurt", "Zucchini", "Quiche", "Pancakes", "Jerky", "Jelly", "Ham", "Hamburger", "Donut", "Dumpling"};
 	
 	// First arg is number of rows to generate
 	// Second arg is the output file path
@@ -43,11 +47,11 @@ public class CriminalGenerator {
 			printFavoriteColor(10);
 //			printShoeSize();
 //			printYears();
-//			printFavoriteFood();
+			printFavoriteFood(10);
 //			printFitness();
 //			printEyeColor();
 //			printHairColor();
-//			printIsVegetarian();
+			printIsVegetarian();
 //			printLevelOfOffense();
 //			printState();
 			writer.println();
@@ -69,5 +73,19 @@ public class CriminalGenerator {
 	private static void printFavoriteColor(int options) {
 		int color = rand.nextInt(options);
 		writer.write(colors[color] + "\t"); // Will choose a color
+	}
+
+	private static void printFavoriteFood(int options) {
+		int food = rand.nextInt(options);
+		writer.write(foods[food] + "\t"); // Will choose a food
+	}
+	
+	private static void printIsVegetarian() {
+		int veggies = rand.nextInt(2);
+		if (veggies == 0) {
+			writer.write("false");
+		} else if (veggies == 1) {
+			writer.write("true");
+		}
 	}
 }
