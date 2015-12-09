@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Random;
 
-public class CriminalGenerator {
+public class CriminalGenerator3 {
 	private static long numRows;
 	private static String outputPath;
 	private static long seed;
@@ -55,21 +55,21 @@ public class CriminalGenerator {
 		
 		for (int i = 0; i < numRows; ++i) {
 			printSSN();
-			printNames(firstNames.length, lastNames.length);
+			printNames(3, 3);
 			printHeight(60, 82); // 23 options
 			printWeight(120, 300); // 37 options
 			printAddress();
 			printDOB(1952, 49); // 49 options
-			printFavoriteColor(colors.length);
+			printFavoriteColor(3);
 			printShoeSize(6, 16); // 11 options
 			printYears(1, 50); // 50 options
-			printFavoriteFood(foods.length);
+			printFavoriteFood(3);
 			printFitness();
-			printEyeColor(colors.length);
-			printHairColor(colors.length);
+			printEyeColor(3);
+			printHairColor(3);
 			printIsVegetarian();
 			printLevelOfOffense();
-			printState(states.length);
+			printState(3);
 			writer.println();
 		}
 		writer.close();

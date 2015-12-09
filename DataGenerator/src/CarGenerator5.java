@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 
-public class CarGenerator {
+public class CarGenerator5 {
 	private static long numRows;
 	private static String outputPath;
 	private static long seed;
@@ -44,9 +44,9 @@ public class CarGenerator {
 		for (int i = 0; i < numRows; ++i) {
 			printVIN();
 			printPlate();
-			printState(states.length);
-			printColor(colors.length);
-			printMakeAndModel(10, 10); // Use at least 1 and at most 10 for each of these
+			printState(5);
+			printColor(5);
+			printMakeAndModel(5, 5); // Use at least 1 and at most 10 for each of these
 			printYear(10);
 			writer.println();
 		}
