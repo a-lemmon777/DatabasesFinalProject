@@ -63,11 +63,8 @@ public class CarGenerator {
 	}
 
 	private static void printPlate() {
-		int length = 6; // Plates will be 6 characters long
-		StringBuilder plate = new StringBuilder(length); 
-		for (int i = 0; i < 3; ++i) { // First three digits are numbers
-			plate.append((char)('0' + rand.nextInt(10))); // Should give 0 through 9
-		}
+		StringBuilder plate = new StringBuilder();
+		plate.append(String.format("%03d", rand.nextInt(1000))); // Gets a 3 digit number
 		for (int i = 0; i < 3; ++i) { // Second three digits are letters
 			plate.append((char)('A' + rand.nextInt(26))); // Should give A through Z
 		}

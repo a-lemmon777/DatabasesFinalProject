@@ -38,7 +38,7 @@ public class CriminalGenerator {
 		"Mediocre-ly obese. Could lose like 20 pounds and be the hottest prisoner in Block E.",
 		"The potbelly on this person is sorta cute, but I feel like they haven't exercised in four years...",
 		"Decently fit. Completely average except for the fact that they're a criminal."};
-	private static String[] offense = {"Petty misdemeanor", "Misdemeanor", "Gross misdemeanor", "Felony"};
+	private static String[] offense = {"Petty misdemeanor", "Misdemeanor", "Gross misdemeanor", "Felony", "Naughty"};
 	private static String[] states= {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA",
 		"ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD",
 		"TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
@@ -59,7 +59,7 @@ public class CriminalGenerator {
 			printHeight(60, 82);
 			printWeight(120, 125);
 			printAddress();
-			printDOB();
+			printDOB(1952, 49);
 			printFavoriteColor(10);
 			printShoeSize(6, 16);
 			printYears(1, 35);
@@ -101,22 +101,19 @@ public class CriminalGenerator {
 	// Generates a random four-digit address number, a random street name, a random street suffix, random city and state, and random zip code
 	private static void printAddress() {
 		StringBuilder address = new StringBuilder(100);
-		int[] random = {rand.nextInt(15), rand.nextInt(7), rand.nextInt(20), rand.nextInt(50)};
-		for (int i = 0; i < 4; ++i) { // Four house number digits
-			address.append((char)('0' + rand.nextInt(10))); // Should give 0 through 9
-		}
+		int[] random = {rand.nextInt(addressNames.length), rand.nextInt(addressEnds.length), rand.nextInt(cityNames.length), rand.nextInt(states.length)};
+		address.append(String.format("%04d", rand.nextInt(10000))); // Four house number digits
 		address.append(" " + addressNames[random[0]] + " " + addressEnds[random[1]] + ", " + cityNames[random[2]] + ", " + states[random[3]] + ", ");
-		for (int i = 0; i < 5; ++i) { // Five zip code digits
-			address.append((char)('0' + rand.nextInt(10))); // Should give 0 through 9
-		}
+		address.append(String.format("%05d", rand.nextInt(100000))); // Five zip code digits
 		writer.write(address.toString() + "\t");
 	}
 	
 	// Gets a random month, day, and year (between 1952 and 2000)
-	private static void printDOB() {
+	private static void printDOB(int startYear, int options) {
 		GregorianCalendar gc = new GregorianCalendar();
-		int year = 1952 + (int)Math.round(Math.random() * (2000 - 1952));
-		int dayOfYear = 1 + (int)Math.round(Math.random() * (gc.getActualMaximum(Calendar.DAY_OF_YEAR) - 1));
+		int year = startYear + rand.nextInt(options); // 49 possibilities, from 1952 to 2000 inclusive
+		int numDaysOfYear = gc.isLeapYear(year) ? 366 : 365;
+		int dayOfYear = 1 + rand.nextInt(numDaysOfYear);
 		gc.set(Calendar.YEAR, year);
 		gc.set(Calendar.DAY_OF_YEAR, dayOfYear);
 		writer.write((gc.get(Calendar.MONTH) + 1) + "/" + gc.get(Calendar.DAY_OF_MONTH) + "/" + gc.get(Calendar.YEAR) + "\t");
@@ -143,7 +140,7 @@ public class CriminalGenerator {
 	}
 	
 	private static void printFitness() {
-		int fitnessNum = rand.nextInt(5);
+		int fitnessNum = rand.nextInt(fitness.length);
 		writer.write(fitness[fitnessNum] + "\t"); // Will choose a hilarious fitness level
 	}
 
@@ -158,16 +155,11 @@ public class CriminalGenerator {
 	}
 	
 	private static void printIsVegetarian() {
-		int veggies = rand.nextInt(2); // Prints true or false given 0 or 1
-		if (veggies == 0) {
-			writer.write("false" + "\t");
-		} else if (veggies == 1) {
-			writer.write("true" + "\t");
-		}
+		writer.write(String.valueOf(rand.nextBoolean()));
 	}
 	
 	private static void printLevelOfOffense() {
-		int offenseNum = rand.nextInt(4);
+		int offenseNum = rand.nextInt(offense.length);
 		writer.write(offense[offenseNum] + "\t"); // Will choose one of four offense levels
 	}
 	
