@@ -103,3 +103,33 @@ Criminals_in_nk_0,3.74
 Criminals_in_nk_1,0.96
 Criminals_in_pk_1,59.14
 Criminals_in_pk_3,47.10
+
+// Covered query
+"select SSN, height, weight from IndexBase._ where height > 70 and weight = 160;", seconds,
+Criminals_ar_nk_0,0.20
+Criminals_ar_nk_1,0.20
+Criminals_ar_pk_1,0.20
+Criminals_ar_pk_3,0.20
+Criminals_in_nk_0,1.15
+Criminals_in_nk_1,0.98
+Criminals_in_pk_1,59.18
+Criminals_in_pk_3,0.74
+
+"select SSN, height, weight from IndexBase._ where height > 70 and weight < 160;", seconds,
+Criminals_ar_nk_0,0.23
+Criminals_ar_nk_1,0.24
+Criminals_ar_pk_1,0.22
+Criminals_ar_pk_3,0.22
+Criminals_in_nk_0,1.47
+Criminals_in_nk_1,2.04
+Criminals_in_pk_1,60.12
+Criminals_in_pk_3,0.82
+
+"LOAD DATA LOCAL INFILE '/media/lemmon/BigSSD/allData/DataSets/criminals_3opt_2M.txt' INTO TABLE IndexBase._ ;", seconds,
+Criminals_ar_nk_0_big,14.31
+
+"LOAD DATA LOCAL INFILE '/media/lemmon/BigSSD/allData/DataSets/criminals_3opt_5M.txt' INTO TABLE IndexBase._ ;", seconds,
+Criminals_ar_nk_0_big,35.05
+
+"LOAD DATA LOCAL INFILE '/media/lemmon/BigSSD/allData/DataSets/criminals_3opt_8M.txt' INTO TABLE IndexBase._ ;", seconds,
+Criminals_ar_nk_0_big,62.86

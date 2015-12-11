@@ -10,10 +10,10 @@
 
 #ARG1: Name of output file (make it end in .csv)
 
-COMMANDP1="select SSN, height, weight, fitnessLevel from IndexBase."
-COMMANDP2=" where height = 70 and weight > 160;"
+COMMANDP1="LOAD DATA LOCAL INFILE '/media/lemmon/BigSSD/allData/DataSets/criminals_3opt_40M.txt' INTO TABLE IndexBase."
+COMMANDP2=" ;"
 
-DBS="Criminals_ar_nk_0 Criminals_ar_nk_1 Criminals_ar_pk_1 Criminals_ar_pk_3 Criminals_in_nk_0 Criminals_in_nk_1 Criminals_in_pk_1 Criminals_in_pk_3"
+DBS="Criminals_ar_nk_0_big"
 
 
 #################################################
