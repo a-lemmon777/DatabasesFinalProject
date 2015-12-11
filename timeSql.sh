@@ -10,10 +10,10 @@
 
 #ARG1: Name of output file (make it end in .csv)
 
-COMMANDP1="SELECT count(*) FROM FinalProject."
-COMMANDP2=" WHERE 0=1;"
+COMMANDP1="select SSN, height, weight, fitnessLevel from IndexBase."
+COMMANDP2=" where height = 70 and weight > 160;"
 
-DBS="cars_max_10M_blobAll cars_max_10M_blobAll_pk cars_max_10M_charAll cars_max_10M_charAll_pk cars_max_10M_textAll cars_max_10M_textAll_pk cars_max_10M_varcharAll cars_max_10M_varcharAll_pk"
+DBS="Criminals_ar_nk_0 Criminals_ar_nk_1 Criminals_ar_pk_1 Criminals_ar_pk_3 Criminals_in_nk_0 Criminals_in_nk_1 Criminals_in_pk_1 Criminals_in_pk_3"
 
 
 #################################################
@@ -21,7 +21,7 @@ DBS="cars_max_10M_blobAll cars_max_10M_blobAll_pk cars_max_10M_charAll cars_max_
 #################################################
 
 ###Add csv headers
-printf '\n\"%s_%s\", seconds,\n' "$COMMANDP1" "$COMMANDP2" > $1
+printf '\n\"%s_%s\", seconds,\n' "$COMMANDP1" "$COMMANDP2" >> $1
 
 for DB in $DBS
 do
@@ -33,7 +33,5 @@ do
 
 				 /usr/bin/time  -a -o $1 -f "%e"\
 	 				mysql -u root --password=bananas  -e "$COMMANDP1""$DB""$COMMANDP2" > /dev/null
-
-
 
 done

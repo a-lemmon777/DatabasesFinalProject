@@ -6,11 +6,12 @@ import java.util.GregorianCalendar;
 import java.util.Random;
 
 public class CriminalGenerator5 {
-	private static long numRows;
+	private static int numRows;
 	private static String outputPath;
 	private static long seed;
 	private static Random rand;
 	private static PrintWriter writer;
+	private static int[] possibleSSNs;
 	private static String[] firstNames = {"Eva", "Victor", "Vincent", "Darrel", "Michael", "Bessie", "Eduardo", "Charlene", "Maggie", "Bobby",
 		"Shawna", "Lee", "Shelly", "Jessica", "Erma", "Faith", "Jeannie", "Ernestine", "Clay", "Thomas", "Tony", "Jacob", "Sarah", "Jack",
 		"Oscar", "Roberto", "Clayton", "Ruben", "Shaun", "Sonja", "Christie", "Francis", "Katherine", "Santos", "Wm", "Lela", "Leticia", "Gina",
@@ -47,14 +48,28 @@ public class CriminalGenerator5 {
 	// Second arg is the output file path
 	// Third arg is the seed for the random number generator
 	public static void main(String[] args) throws IOException {
-		numRows = Long.parseLong(args[0]);
+		numRows = Integer.parseInt(args[0]);
 		outputPath = args[1];
 		seed = Long.parseLong(args[2]);
 		rand = new Random(seed);
 		writer = new PrintWriter(new FileWriter(outputPath));
+		possibleSSNs = new int[numRows];
+		// Fill array in increasing order
+		for (int i = 0; i < numRows; ++i) {
+			possibleSSNs[i] = i;
+		}
+		// Shuffle array
+	    for (int i = possibleSSNs.length - 1; i > 0; i--)
+	    {
+	      int index = rand.nextInt(i + 1);
+	      // Simple swap
+	      int a = possibleSSNs[index];
+	      possibleSSNs[index] = possibleSSNs[i];
+	      possibleSSNs[i] = a;
+	    }
 		
 		for (int i = 0; i < numRows; ++i) {
-			printSSN();
+			printSSN(possibleSSNs[i]);
 			printNames(5, 5);
 			printHeight(60, 82); // 23 options
 			printWeight(120, 300); // 37 options
@@ -75,9 +90,9 @@ public class CriminalGenerator5 {
 		writer.close();
 	}
 
-	private static void printSSN() {
-		int SSN = rand.nextInt(1000000000); // Should give 9 digits
-		writer.write(String.format("%09d", SSN) + "\t");
+	private static void printSSN(int num) {
+		//int SSN = rand.nextInt(1000000000); // Should give 9 digits
+		writer.write(String.format("%09d", num) + "\t");
 	}
 
 	private static void printNames(int firstOptions, int lastOptions) {

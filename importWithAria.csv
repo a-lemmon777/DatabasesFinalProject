@@ -1,0 +1,10 @@
+
+"LOAD DATA LOCAL INFILE '/media/lemmon/BigSSD/allData/DataSets/cars_max_1M.txt' INTO TABLE FinalProject._ ;", seconds,
+cars_max_10M_blobAll,2.91
+cars_max_10M_blobAll_pk,12.59
+cars_max_10M_charAll,2.88
+cars_max_10M_charAll_pk,9.68
+cars_max_10M_textAll,2.97
+cars_max_10M_textAll_pk,13.54
+cars_max_10M_varcharAll,2.85
+cars_max_10M_varcharAll_pk,13.46

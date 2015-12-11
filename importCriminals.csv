@@ -1,0 +1,105 @@
+
+"LOAD DATA LOCAL INFILE '/media/lemmon/BigSSD/allData/DataSets/criminals_3opt_500K.txt' INTO TABLE IndexBase._ ;", seconds,
+Criminals_ar_nk_0,4.17
+Criminals_ar_nk_1,4.39
+Criminals_ar_pk_1,5.40
+Criminals_ar_pk_3,6.75
+Criminals_in_nk_0,17.32
+Criminals_in_nk_1,22.50
+Criminals_in_pk_1,48.70
+Criminals_in_pk_3,69.12
+
+"select * from IndexBase._ ;", seconds,
+Criminals_ar_nk_0,1.90
+Criminals_ar_nk_1,1.96
+Criminals_ar_pk_1,1.88
+Criminals_ar_pk_3,1.92
+Criminals_in_nk_0,2.57
+Criminals_in_nk_1,2.79
+Criminals_in_pk_1,60.59
+Criminals_in_pk_3,60.67
+
+"select SSN, Firstname, Lastname, height, weight, address, DOB, favoriteColor, shoeSize, yearsInJail, favoriteFood, eyeColor, hairColor, isVegetarian, levelOfOffense, state from IndexBase._ ;", seconds,
+Criminals_ar_nk_0,1.27
+Criminals_ar_nk_1,1.32
+Criminals_ar_pk_1,1.28
+Criminals_ar_pk_3,1.27
+Criminals_in_nk_0,2.38
+Criminals_in_nk_1,2.81
+Criminals_in_pk_1,61.29
+Criminals_in_pk_3,59.97
+
+"select SSN from IndexBase._ order by SSN;", seconds,
+Criminals_ar_nk_0,0.38
+Criminals_ar_nk_1,0.14
+Criminals_ar_pk_1,0.13
+Criminals_ar_pk_3,0.12
+Criminals_in_nk_0,1.86
+Criminals_in_nk_1,2.17
+Criminals_in_pk_1,58.26
+Criminals_in_pk_3,58.20
+
+"select SSN from IndexBase._ ;", seconds,
+Criminals_ar_nk_0,0.28
+Criminals_ar_nk_1,0.14
+Criminals_ar_pk_1,0.13
+Criminals_ar_pk_3,0.12
+Criminals_in_nk_0,1.47
+Criminals_in_nk_1,2.08
+Criminals_in_pk_1,60.04
+Criminals_in_pk_3,1.24
+
+"select SSN from IndexBase._ ;", seconds,
+Criminals_in_pk_3,0.14
+
+"select SSN from IndexBase._ ;", seconds,
+Criminals_in_pk_3,1.74
+
+"select SSN from IndexBase._ ;", seconds,
+Criminals_in_pk_1,60.33
+Criminals_in_pk_3,1.76
+
+"select count(*) from IndexBase._ ;", seconds,
+Criminals_ar_nk_0,0.00
+Criminals_ar_nk_1,0.00
+Criminals_ar_pk_1,0.00
+Criminals_ar_pk_3,0.00
+Criminals_in_nk_0,1.42
+Criminals_in_nk_1,1.99
+Criminals_in_pk_1,58.20
+Criminals_in_pk_3,0.06
+
+// Covered query
+"select SSN, height, weight from IndexBase._ where height = 70 and weight > 160;", seconds,
+Criminals_ar_nk_0,0.21
+Criminals_ar_nk_1,0.21
+Criminals_ar_pk_1,0.21
+Criminals_ar_pk_3,0.09
+Criminals_in_nk_0,1.98
+Criminals_in_nk_1,2.00
+Criminals_in_pk_1,58.58
+Criminals_in_pk_3,0.01
+
+// Noncovered query
+"select SSN, height, weight, favoriteColor from IndexBase._ where height = 70 and weight > 160;", seconds,
+Criminals_ar_nk_0,0.21
+Criminals_ar_nk_1,0.21
+Criminals_ar_pk_1,0.21
+Criminals_ar_pk_3,0.09
+Criminals_in_nk_0,1.41
+Criminals_in_nk_1,1.93
+Criminals_in_pk_1,58.07
+Criminals_in_pk_3,48.78
+
+
+// Noncovered query, with text
+
+"select SSN, height, weight, fitnessLevel from IndexBase._ where height = 70 and weight > 160;", seconds,
+Criminals_ar_nk_0,0.23
+Criminals_ar_nk_1,0.23
+Criminals_ar_pk_1,0.23
+Criminals_ar_pk_3,0.11
+Criminals_in_nk_0,3.74
+Criminals_in_nk_1,0.96
+Criminals_in_pk_1,59.14
+Criminals_in_pk_3,47.10
